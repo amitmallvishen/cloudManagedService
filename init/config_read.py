@@ -49,9 +49,23 @@ class InitializationManager(object):
                       cfg.IntOpt( name = 'Instance_scaling_over_6_months', default =30  , help=('instance scaling') )
                     ]
 
+
+    chassis_grp = cfg.OptGroup( name = 'Chassis' ,
+                                title = 'OpenStackchassis' )
+ 
+    chassis_opts = [ cfg.DictOpt ( name = 'chassis_1' , default = None , help=('chassis 1') ),
+                     cfg.DictOpt ( name = 'chassis_2' , default = None , help=('chassis 2') ),
+                     cfg.DictOpt ( name = 'chassis_3' , default = None , help=('chassis 3') ),
+                     cfg.DictOpt ( name = 'chassis_4' , default = None , help=('chassis 4') ),
+                     cfg.DictOpt ( name = 'chassis_5' , default = None , help=('chassis 5') ),
+                     cfg.DictOpt ( name = 'chassis_6' , default = None , help=('chassis 6') ),
+                     cfg.DictOpt ( name = 'chassis_7' , default = None , help=('chassis 7') ),
+                     cfg.DictOpt ( name = 'chassis_8' , default = None , help=('chassis 8') )
+                    ]
+
     def __init__( self ):
        self.CONF = cfg.CONF
        self.CONF.register_group( self.opt_group )
        self.CONF.register_opts( self.capacity_opts , self.opt_group )
-
-
+       self.CONF.register_group( self.chassis_grp )
+       self.CONF.register_opts( self.chassis_opts , self.chassis_grp )
