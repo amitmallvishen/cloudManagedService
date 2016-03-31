@@ -56,7 +56,7 @@ class compute_resource(object):
       def cal_total_vcpu( self ):
           capacity = self.config.CONF.OpenStackCapacity
 
-          if capacity.Hyperthreading == 'yes':
+          if True == capacity.Hyperthreading:
               total_vcpu = self.cal_no_of_compute_node() * capacity.CPUs_per_compute_node * capacity.Cores_per_CPU * capacity.Hyperthreading_Factor * capacity.CPU_Oversubscription_Factor
           else:
               total_vcpu = self. cal_no_of_compute_node() * capacity.CPUs_per_compute_node * capacity.Cores_per_CPU * capacity.Hyperthreading_Factor * capacity.CPU_Oversubscription_Factor
