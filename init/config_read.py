@@ -24,10 +24,11 @@
 #################################################################
 #################################################################
 
+from myapplication import myapplication
 from oslo_config import cfg
 
 
-class InitializationManager(object):
+class InitializationManager(myapplication):
 
     opt_group = cfg.OptGroup( name = 'OpenStackCapacity' ,
                           title = 'OpenStackConfiguration' )
@@ -35,6 +36,7 @@ class InitializationManager(object):
     capacity_opts = [ cfg.IntOpt( name ='CPUs_per_compute_node', default=2, help=('CPU per compute node')),
                       cfg.IntOpt( name ='Cores_per_CPU', default=12 ,help=('core per cpu') ),
                       cfg.BoolOpt( name ='Hyperthreading' , default='yes' , help=(' hyper threading' )),
+#                      cfg.IntOpt( name ='Hyperthreading' , default=1 , help=(' hyper threading' )),
                       cfg.IntOpt( name = 'Memory_per_compute_node' , default = 256 , help=('memory per compute node')), 
                       cfg.IntOpt( name = 'Average_vCPUs_per_instance' ,default = 2 , help=('avarage cpu per compute node')), 
                       cfg.IntOpt( name = 'Average_memory_per_instance' , default = 4 , help=('average memory per instance')), 
