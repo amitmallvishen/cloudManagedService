@@ -140,18 +140,3 @@ class cost_calculation( compute_resource ):
 
               return float(price_based_on_chassis) / self.cal_instances_per_node( chassis )  
  
-if __name__ == "__main__":
-
-    res = compute_resource()
-    print "toatal no compute node",res.cal_no_of_compute_node()
-    print "total vcpu",res.cal_total_vcpu()
-    print "total memory",res. cal_total_memory()
-    print "number of instances for design", res.cal_num_of_instances_for_design()
-    print "cal_instances_based_on_vcpu",res.cal_instances_based_on_vcpu()
-    print "cal_instances_based_on_memory",res.cal_instances_based_on_memory()
- 
-    chassis = 2
-    cos = cost_calculation()
-    print "cal cost of ins",cos.cal_instances_per_node( chassis )  
-    print "cal number of nodes", cos.cal_number_of_nodes_required( chassis )
-    print "cal cost per instance", cos.cal_cost_per_instance( chassis ) 
