@@ -1,5 +1,7 @@
 import web
 from compute_resources import compute_resource
+import json
+
 
 
 class welcome:
@@ -15,7 +17,17 @@ class welcome:
         print "my calc vcpu " ,vCpu 
         print "my calc memory" ,memory 
 
-        return vCpu,memory
+        s1 = str(vCpu)
+        s2 = str(memory)
+        data = {}
+         
+        data['vCpu'] = s1 
+        data['memory'] = s2
+
+
+        json_data = json.dumps(data)#{ 'vCpu' : '' , 'memory' :'' })
+ 
+        return json_data
 
 
 class osCapacity(object):
@@ -29,6 +41,17 @@ class osCapacity(object):
         vCpu, memory = res.calc_os_capacity( data )
 
         print "my calc vcpu " ,vCpu 
-        print "my calc memory" ,memory 
 
-        return vCpu,memory
+        print "my calc memory" ,memory
+
+        s1 = str(vCpu)
+        s2 = str(memory)
+        data = {}
+         
+        data['vCpu'] = s1 
+        data['memory'] = s2
+
+
+        json_data = json.dumps(data)#{ 'vCpu' : '' , 'memory' :'' })
+ 
+        return json_data
